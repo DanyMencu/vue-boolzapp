@@ -176,7 +176,7 @@ input:hover {
     list-style-type: none;
 }
 
-.contact {
+.contacts-list .contact {
     width: 100%;
     align-items: center;
     padding: 10px 15px;
@@ -184,11 +184,11 @@ input:hover {
     font-weight: 600;
 }
 
-.contact:last-child {
+.contacts-list .contact:last-child {
     border-bottom: 0;
 }
 
-.contact .avatar-img {
+.contacts-list .contact .avatar-img {
     width: 45px;
     height: 45px;
 }
@@ -198,7 +198,7 @@ input:hover {
     border-radius: 50%;
 }
 
-.contact:hover {
+.contacts-list .contact:hover {
     background-color: #eee;
     transition: all 0.3s;
 }
@@ -237,6 +237,36 @@ input:hover {
 .chat-container {
     flex-grow: 1;
     background-image: url(./img/mine.jpg);
+    padding: 25px 30px;
+}
+
+.message {
+    width: 45%;
+    min-height: 8%;
+    display: flex;
+    justify-content: space-between;
+    border-radius: 10px;
+    margin: 3px 0;
+    padding: 2px 5px;
+}
+
+.message .text {
+    align-self: center;
+    font-size: 12px;
+}
+
+.message .date {
+    align-self: flex-end;
+    font-size: 8px;
+}
+
+.chat-container .user {
+    background-color: #ddfabf;
+    align-self: flex-end;
+}
+
+.chat-container .contact {
+    background-color: #fff;
 }
 
 /* Chat FOOTER */
