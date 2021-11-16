@@ -68,14 +68,19 @@
                 </div>
 
                 <!-- Contact area -->
-                <ul class="contacts-list flex-column">
-                    <li class="contact d-flex">
+                <ul 
+                    class="contacts-list flex-column"
+                    v-if="contacts.length > 0">
+                    <li 
+                        class="contact d-flex"
+                        v-for="(element, index) in contacts">
                         <div class="avatar-img mr-10">
-                            <img src="./img/avatar_1.jpg" alt="Avatar image"/>
+                            <img :src="`img/avatar${element.avatar}.jpg`" :alt=" element.name"/>
                         </div>
-                        <span class="contact-name"> Michiele</span>
+                        <span class="contact-name">{{ element.name }}</span>
                     </li>
                 </ul>
+                <h3 v-else>Non hai nessun contatto o chat con cui parlare...</h3>
             </section>
         </side>
 
@@ -111,11 +116,11 @@
 
             <!-- MAIN chat -->
             <main class="chat-container flex-column">
-                <div class="user message">
+                <div class="sent message">
                     <span class="text">Messaggio inviato</span>
                     <span class="date">10/01/2021  15:00:00</span>
                 </div>
-                <div class="contact message">
+                <div class="recive message">
                     <span class="text">Messaggio inviato lo</span>
                     <span class="date">10/01/2021  15:00:00</span>
                 </div>

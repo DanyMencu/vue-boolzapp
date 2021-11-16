@@ -237,7 +237,7 @@ input:hover {
 .chat-container {
     flex-grow: 1;
     background-image: url(./img/mine.jpg);
-    padding: 25px 30px;
+    padding: 3% 13%;
 }
 
 .message {
@@ -260,12 +260,12 @@ input:hover {
     font-size: 8px;
 }
 
-.chat-container .user {
+.chat-container .sent {
     background-color: #ddfabf;
     align-self: flex-end;
 }
 
-.chat-container .contact {
+.chat-container .recive {
     background-color: #fff;
 }
 
@@ -281,7 +281,7 @@ input:hover {
 .text-area input {
     flex-grow: 1;
     height: 100%;
-    border: 1px solid #f7f7f7;
+        border: 1px solid #f7f7f7;
     padding: 5px 0 5px 10px;
 }
 
