@@ -27,9 +27,9 @@
                 <!-- User profile -->
                 <div class="personal-user d-flex content-center">
                     <div class="avater-img mr-5">
-                        <img src="./img/avatar_io.jpg" alt="User avatar">
+                        <img :src="`img/avatar${user.avatar}.jpg`" :alt="user.name">
                     </div>
-                    <span class="user-name">Nome Utente</span>
+                    <span class="user-name">{{ user.name }}</span>
                 </div>
                 <!-- Option icon -->
                 <div class="option-area d-flex content-center">

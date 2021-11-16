@@ -4,6 +4,10 @@
 const root = new Vue ({
     el: '#root',
     data: {
+        user: {
+            name: 'Daniele Menculini',
+            avatar: '_io',
+        },
         contacts: [
             {
                 name: 'Michele',
