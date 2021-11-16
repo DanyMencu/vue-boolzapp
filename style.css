@@ -69,14 +69,16 @@ body {
 
 /* header */
 .aside-header {
+    height: 10%;
     justify-content: space-between;
-    padding: 10px;
+    padding: 0 10px;
     background-color: #ededed;
 }
 
 .avater-img {
     width: 30px;
     height: 30px;
+    cursor: pointer;
 }
 .avater-img img {
     height: 100%;
@@ -204,6 +206,41 @@ input:hover {
 /** CHAT SECTION */
 
 .chat-section {
-    background-image: url(./img/mine.jpg);
     width: 65%;
+}
+
+/* Chat HEADER */
+
+.chat-header {
+    height: 10%;
+    justify-content: space-between;
+    padding: 0 15px;
+    background-color: #ededed;
+}
+
+.contact-user .avatar-img {
+    width: 35px;
+    height: 35px;
+    cursor: pointer;
+}
+
+.contact-name {
+    font-size: 14px;
+}
+
+.last-login {
+    font-size: 12px;
+}
+
+/* MAIN chat */
+
+.chat-container {
+    flex-grow: 1;
+    background-image: url(./img/mine.jpg);
+}
+
+/* Chat FOOTER */
+
+.text-area {
+    background-color: #f4f0ed;
 }
