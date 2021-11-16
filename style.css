@@ -36,6 +36,15 @@ body {
     display: flex;
 }
 
+.flex-column {
+    flex-direction: column;
+}
+
+.content-center {
+    justify-content: center;
+    align-items: center;
+}
+
 /* MARGIN */
 .mr-5 {
     margin-right: 5px;
@@ -54,15 +63,11 @@ body {
     border-right: 1px solid #ccc;
 }
 
+/* header */
 .aside-header {
     justify-content: space-between;
     padding: 10px;
-    background-color: #eee;
-}
-
-.personal-user,
-.option-area {
-    align-items: center;
+    background-color: #ededed;
 }
 
 .avater-img {
@@ -76,12 +81,38 @@ body {
 }
 
 .option-area a {
-    color: #bbb;
+    color: #bababa;
 }
 
 .option-area a:hover i {
     color: #666;
     transform: scale(1.05);
+}
+
+/* Notification area */
+.aside-notification {
+    padding: 10px 15px;
+    background-color: #a2dffe;
+    align-items: center;
+}
+
+.bell-icon {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    background-color: #fff;
+}
+
+.bell-icon i {
+    color: #a2dffe;
+}
+
+.aside-notification span {
+    font-size: 12px;
+}
+
+.aside-notification a {
+    font-size: 10px;
 }
 
 
