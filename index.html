@@ -14,10 +14,47 @@
     <link rel="stylesheet" href="./style.css">
     <!-- Vue -->
     <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+    <link rel="icon" href="./img/favicon-64x64.ico" type="image/x-icon">
     <title>Boolzapp</title>
 </head>
 <body>
-    <div id="root" class="container"></div>
+    <div id="root" class="container">
+        <!-- Aside bar -->
+        <side class="asidebar">
+
+            <!-- Aside HEADER -->
+            <header class="aside-header d-flex">
+                <div class="personal-user d-flex">
+                    <div class="avater-img mr-5">
+                        <img src="./img/avatar_io.jpg" alt="User avatar">
+                    </div>
+                    <span class="user-name">Nome Utente</span>
+                </div>
+                <div class="option-area d-flex">
+                    <a href="#">
+                        <i class="fas fa-circle-notch"></i>
+                    </a>
+                    <a href="#" class="px-15">
+                        <i class="fas fa-comment-alt"></i>
+                    </a>
+                    <a href="#">
+                        <i class="fas fa-ellipsis-v"></i>
+                    </a>
+                </div>
+            </header>
+
+            <!-- Aside NOTIFICATION switch -->
+            <div class="aside-notification"></div>
+
+            <!-- Aside CONTACT section -->
+            <section class="aside-contact"></section>
+        </side>
+
+        <!-- Chat section -->
+        <section class="chat-section">
+
+        </section>
+    </div>
 
     <!-- JS -->
     <script src="./script.js"></script>
