@@ -75,6 +75,7 @@
                         class="contact d-flex"
                         v-for="(element, index) in contacts"
                         @click="choseChat(index)"
+                        :class="{focussed: index === activeChat}"
                     >
                         <div class="avatar-img mr-10">
                             <img :src="`img/avatar${element.avatar}.jpg`" :alt=" element.name"/>
@@ -132,7 +133,13 @@
                 <a href="#">
                     <i class="far fa-smile"></i>
                 </a>
-                <input type="text" placeholder="Scrivi un messaggio...">
+                <input 
+                    type="text" 
+                    placeholder="Scrivi un messaggio..."
+                    v-model.trim="newMessage"
+                    @keyup.enter="sendMessage"
+                    ref="textArea"
+                >
                 <a href="#">
                     <i class="fas fa-microphone"></i>
                 </a>
@@ -141,6 +148,7 @@
     </div>
 
     <!-- JS -->
+    <script src="https://cdn.jsdelivr.net/npm/dayjs@1.10.7/dayjs.min.js"></script>
     <script src="./script.js"></script>
 </body>
 </html>

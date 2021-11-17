@@ -105,10 +105,26 @@ const root = new Vue ({
             },
         ],
         activeChat: 0,
+        newMessage:'',
     },
     methods: {
+        //Click on contact in aside bar to shot chat
         choseChat(chatIndex) {
             this.activeChat = chatIndex;
-        }
+        },
+        sendMessage() {
+            if( this.newMessage !== '' ) {
+                this.contacts[activeChat].messages.push({
+                    text: this.newMessage,
+                    status: 'sent',
+                    date:dayjs().format('DD/MM/YYYY  HH:mm:ss')
+                });
+
+                //Clean text area
+                this.newMessage = '';
+                //Set focus
+                this.$refs.textarea.focus();
+            }
+        },
     },
 });

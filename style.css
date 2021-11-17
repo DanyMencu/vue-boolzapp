@@ -203,6 +203,10 @@ input:hover {
     transition: all 0.3s;
 }
 
+.focussed {
+    background-color: #eee;
+}
+
 /** CHAT SECTION */
 
 .chat-section {
