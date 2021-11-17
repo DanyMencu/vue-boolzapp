@@ -73,7 +73,9 @@
                     v-if="contacts.length > 0">
                     <li 
                         class="contact d-flex"
-                        v-for="(element, index) in contacts">
+                        v-for="(element, index) in contacts"
+                        @click="choseChat(index)"
+                    >
                         <div class="avatar-img mr-10">
                             <img :src="`img/avatar${element.avatar}.jpg`" :alt=" element.name"/>
                         </div>
@@ -93,10 +95,10 @@
                 <!-- Contact profile -->
                 <div class="contact-user d-flex content-center">
                     <div class="avatar-img mr-10">
-                        <img src="./img/avatar_1.jpg" alt="User name">
+                        <img :src="`./img/avatar${contacts[activeChat].avatar}.jpg`" alt="User name">
                     </div>
                     <div class="flex-column">
-                        <span class="contact-name">Michele</span>
+                        <span class="contact-name">{{ contacts[activeChat].name }}</span>
                         <span class="last-login">Ultimo accesso oggi alle 10.35</span>
                     </div>
                 </div>
@@ -116,13 +118,12 @@
 
             <!-- MAIN chat -->
             <main class="chat-container flex-column">
-                <div class="sent message">
-                    <span class="text">Messaggio inviato</span>
-                    <span class="date">10/01/2021  15:00:00</span>
-                </div>
-                <div class="recive message">
-                    <span class="text">Messaggio inviato lo</span>
-                    <span class="date">10/01/2021  15:00:00</span>
+                <div 
+                v-for="(element, index) in contacts[activeChat].messages"
+                class="message" :class="element.status"
+                >
+                    <span class="text">{{ element.text }}</span>
+                    <span class="date">{{ element.date }}</span>
                 </div>
             </main>
 
