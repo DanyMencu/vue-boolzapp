@@ -106,6 +106,8 @@ const root = new Vue ({
         ],
         activeChat: 0,
         newMessage:'',
+        randomReplay: ['Ok','Va bene','Non credo sia legale','Certamente sarà fatto','La mi mamma non vuole, scusa',' Avada Kedavra','Che la forza sia con te','Ti farò una proposta che non potrai rifiutare','Boolean telefono caasaaa','Prima regola di Boolean: Non parlare mai di Boolean Fight Club','Ti spiezzo in due','Ma dici a me?','Metti il ciclo for, togli il ciclo for','Nessuno pùò mettere Boolean in un angolo','Paolo, abbiamo un problema...','Questo non è il Vietnam, è il Boolean: ci sono delle regole','Io ne ho viste cose che voi umani non potreste immaginarvi(Paolo spiegare Js Vanilla in 2ore)','Verso l’infinito e oltre!','Possono toglierci la vita, ma non ci toglieranno mai lo Slackbot','Elementare, mio caro (studente qualsiasi di Boolean)','Mi piace l’odore di Tailwind al mattino','(1Ore 10:59) Vedo la gente morta','Il mio tesssoro! (Bootstrap)'
+        ],
     },
     methods: {
         //Click on contact in aside bar to shot chat
@@ -132,7 +134,7 @@ const root = new Vue ({
         autoReply() {
             setTimeout( ()=> {
                 this.contacts[this.activeChat].messages.push({
-                    text: 'Ok',
+                    text: this.randomReplay[Math.floor( Math.random() * (this.randomReplay.length) ) + 1],
                     status: 'received',
                     date:dayjs().format('DD/MM/YYYY  HH:mm:ss')
                 });
