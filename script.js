@@ -114,7 +114,7 @@ const root = new Vue ({
         },
         sendMessage() {
             if( this.newMessage !== '' ) {
-                this.contacts[activeChat].messages.push({
+                this.contacts[this.activeChat].messages.push({
                     text: this.newMessage,
                     status: 'sent',
                     date:dayjs().format('DD/MM/YYYY  HH:mm:ss')
@@ -123,8 +123,20 @@ const root = new Vue ({
                 //Clean text area
                 this.newMessage = '';
                 //Set focus
-                this.$refs.textarea.focus();
+                this.$refs.textArea.focus();
+
+                //Auto reply
+                this.autoReply();
             }
+        },
+        autoReply() {
+            setTimeout( ()=> {
+                this.contacts[this.activeChat].messages.push({
+                    text: 'Ok',
+                    status: 'received',
+                    date:dayjs().format('DD/MM/YYYY  HH:mm:ss')
+                });
+            }, 1000)
         },
     },
 });
