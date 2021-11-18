@@ -131,7 +131,16 @@
                 class="message" :class="element.status"
                 >
                     <span class="text">{{ element.text }}</span>
-                    <div class="data">{{ element.date }}</div>
+                    <div class="data flex-column">
+                        <i class="fas fa-angle-down option-icon"
+                            @click="toggle"
+                        ></i>
+                        <span class="date">{{ element.date }}</span>
+                        <div class="option-toggle flex-column">
+                            <span>More details</span>
+                            <span>Delate</span>
+                        </div>
+                    </div>
                 </div>
             </main>
 

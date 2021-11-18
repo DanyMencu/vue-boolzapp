@@ -246,6 +246,7 @@ input:hover {
 
 .message {
     width: 48%;
+    min-height: 30px;
     display: flex;
     justify-content: space-between;
     border-radius: 10px;
@@ -260,8 +261,37 @@ input:hover {
 }
 
 .message .data {
+    height: 100%;
+    position: relative;
     align-self: flex-end;
+    justify-content: space-between;
+}
+
+.message .data .date {
     font-size: 7px;
+}
+
+.message .data .option-icon {
+    align-self: flex-end;
+}
+
+.option-toggle {
+    width: 90px;
+    height: 40px;
+    position: absolute;
+    top: 12px;
+    right: 0;
+    justify-content: center;
+    align-items: flex-end;
+    z-index: 1;
+    padding: 3px;
+    background: #fff;
+    border: 1px solid #000;
+    display: none;
+}
+
+.option-toggle span {
+    cursor: pointer;
 }
 
 .chat-container .sent {
