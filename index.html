@@ -64,18 +64,25 @@
                     <button>
                         <i class="fas fa-search"></i>
                     </button>
-                    <input type="text" placeholder="Cerca o inizia una nuova chat">
+                    <input 
+                        type="text" 
+                        placeholder="Cerca o inizia una nuova chat"
+                        v-model.trim="searchBar"
+                        @keyup="searchContact"
+                    >
                 </div>
 
                 <!-- Contact area -->
                 <ul 
                     class="contacts-list flex-column"
-                    v-if="contacts.length > 0">
+                    v-if="contacts.length > 0"
+                >
                     <li 
                         class="contact d-flex"
                         v-for="(element, index) in contacts"
+                        v-if="element.visible === true"
                         @click="choseChat(index)"
-                        :class="{focussed: index === activeChat}"
+                        :class="{focussed: index === activeChat,}"
                     >
                         <div class="avatar-img mr-10">
                             <img :src="`img/avatar${element.avatar}.jpg`" :alt=" element.name"/>
@@ -96,7 +103,7 @@
                 <!-- Contact profile -->
                 <div class="contact-user d-flex content-center">
                     <div class="avatar-img mr-10">
-                        <img :src="`./img/avatar${contacts[activeChat].avatar}.jpg`" alt="User name">
+                        <img :src="`./img/avatar${contacts[activeChat].avatar}.jpg`" :alt="contacts[activeChat].name">
                     </div>
                     <div class="flex-column">
                         <span class="contact-name">{{ contacts[activeChat].name }}</span>

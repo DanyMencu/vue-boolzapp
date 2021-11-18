@@ -11,6 +11,9 @@
 
 //Risposta dall’interlocutore: ad ogni inserimento di un messaggio, l’utente riceverà un “ok” come risposta, che apparirà dopo 1 secondo.
 
+//* Milestone 4
+//Ricerca utenti: scrivendo qualcosa nell’input a sinistra, vengono visualizzati solo i contatti il cui nome contiene le lettere inserite (es, Marco, Matteo Martina -> Scrivo “mar” rimangono solo Marco e Martina)
+
 
 const root = new Vue ({
     el: '#root',
@@ -108,18 +111,20 @@ const root = new Vue ({
         newMessage:'',
         randomReplay: ['Ok','Va bene','Non credo sia legale','Certamente sarà fatto','La mi mamma non vuole, scusa',' Avada Kedavra','Che la forza sia con te','Ti farò una proposta che non potrai rifiutare','Boolean telefono caasaaa','Prima regola di Boolean: Non parlare mai di Boolean Fight Club','Ti spiezzo in due','Ma dici a me?','Metti il ciclo for, togli il ciclo for','Nessuno pùò mettere Boolean in un angolo','Paolo, abbiamo un problema...','Questo non è il Vietnam, è il Boolean: ci sono delle regole','Io ne ho viste cose che voi umani non potreste immaginarvi(Paolo spiegare Js Vanilla in 2ore)','Verso l’infinito e oltre!','Possono toglierci la vita, ma non ci toglieranno mai lo Slackbot','Elementare, mio caro (studente qualsiasi di Boolean)','Mi piace l’odore di Tailwind al mattino','(1Ore 10:59) Vedo la gente morta','Il mio tesssoro! (Bootstrap)'
         ],
+        searchBar: '',
     },
     methods: {
         //Click on contact in aside bar to shot chat
         choseChat(chatIndex) {
             this.activeChat = chatIndex;
         },
+        //Send message in active chat
         sendMessage() {
             if( this.newMessage !== '' ) {
                 this.contacts[this.activeChat].messages.push({
+                    date:dayjs().format('DD/MM/YYYY  HH:mm:ss'),
                     text: this.newMessage,
                     status: 'sent',
-                    date:dayjs().format('DD/MM/YYYY  HH:mm:ss')
                 });
 
                 //Clean text area
@@ -131,6 +136,7 @@ const root = new Vue ({
                 this.autoReply();
             }
         },
+        //Choose a randome reply from array
         autoReply() {
             setTimeout( ()=> {
                 this.contacts[this.activeChat].messages.push({
@@ -139,6 +145,15 @@ const root = new Vue ({
                     date:dayjs().format('DD/MM/YYYY  HH:mm:ss')
                 });
             }, 1000)
+        },
+        searchContact() {
+            this.contacts.forEach(element => {
+                if (element.name.toLowerCase().includes(this.searchBar.toLowerCase())) {
+                    element.visible = true;
+                } else {
+                    element.visible = false;
+                }
+            });
         },
     },
 });
