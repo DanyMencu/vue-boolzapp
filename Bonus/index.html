@@ -72,7 +72,7 @@
                     >
                 </div>
 
-                <!-- Contact area -->
+                <!-- *Contact area -->
                 <ul 
                     class="contacts-list flex-column"
                     v-if="contacts.length > 0"
@@ -80,7 +80,7 @@
                     <li 
                         class="contact d-flex"
                         v-for="(element, index) in contacts"
-                        v-if="element.visible === true"
+                        v-show="element.visible === true"
                         @click="choseChat(index)"
                         :class="{focussed: index === activeChat,}"
                     >
@@ -94,7 +94,7 @@
             </section>
         </aside>
 
-        <!-- Chat section -->
+        <!-- *Chat section -->
         <section class="chat-section flex-column">
 
             <!-- Chat HEADER -->
@@ -133,12 +133,17 @@
                     <span class="text">{{ element.text }}</span>
                     <div class="data flex-column">
                         <i class="fas fa-angle-down option-icon"
-                            @click="toggle"
+                            @click="showMenu(index)"
                         ></i>
                         <span class="date">{{ element.date }}</span>
-                        <div class="option-toggle flex-column">
+                        <div class="option-toggle flex-column"
+                        :class="{show: index === menuShow,}">
                             <span>More details</span>
-                            <span>Delate</span>
+                            <span class="delate"
+                                @click="delateMessage(index)"
+                            >
+                            Delate <i class="fas fa-trash-alt"></i>
+                            </span>
                         </div>
                     </div>
                 </div>

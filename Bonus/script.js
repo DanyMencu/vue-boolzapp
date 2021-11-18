@@ -35,17 +35,17 @@ const root = new Vue ({
                     {
                         date: '10/01/2020 15:30:55',
                         text: 'Hai portato a spasso il cane?',
-                        status: 'sent'
+                        status: 'sent',
                     },
                     {
                         date: '10/01/2020 15:50:00',
                         text: 'Ricordati di dargli da mangiare',
-                        status: 'sent'
+                        status: 'sent',
                     },
                     {
                         date: '10/01/2020 16:15:22',
                         text: 'Tutto fatto!',
-                        status: 'received'
+                        status: 'received',
                     }
                 ],
             },
@@ -116,11 +116,13 @@ const root = new Vue ({
         randomReplay: ['Ok','Va bene','Non credo sia legale','Certamente sarà fatto','La mi mamma non vuole, scusa',' Avada Kedavra','Che la forza sia con te','Ti farò una proposta che non potrai rifiutare','Boolean telefono caasaaa','Prima regola di Boolean: Non parlare mai di Boolean Fight Club','Ti spiezzo in due','Ma dici a me?','Metti il ciclo for, togli il ciclo for','Nessuno pùò mettere Boolean in un angolo','Paolo, abbiamo un problema...','Questo non è il Vietnam, è il Boolean: ci sono delle regole','Io ne ho viste cose che voi umani non potreste immaginarvi(Paolo spiegare Js Vanilla in 2ore)','Verso l’infinito e oltre!','Possono toglierci la vita, ma non ci toglieranno mai lo Slackbot','Elementare, mio caro (studente qualsiasi di Boolean)','Mi piace l’odore di Tailwind al mattino','(1Ore 10:59) Vedo la gente morta','Il mio tesssoro! (Bootstrap)'
         ],
         searchBar: '',
+        menuShow: -1,
     },
     methods: {
         //Click on contact in aside bar to shot chat
         choseChat(chatIndex) {
             this.activeChat = chatIndex;
+            this.menuShow = '';
         },
         //Send message in active chat
         sendMessage() {
@@ -150,6 +152,7 @@ const root = new Vue ({
                 });
             }, 1000)
         },
+        //Search contact that includes element from search bar
         searchContact() {
             this.contacts.forEach(element => {
                 if (element.name.toLowerCase().includes(this.searchBar.toLowerCase())) {
@@ -159,5 +162,17 @@ const root = new Vue ({
                 }
             });
         },
+        //Open or close drop down menu
+        showMenu(menuIndex) {
+            if (menuIndex != this.menuShow) {
+                this.menuShow = menuIndex;
+            } else {
+                this.menuShow = -1;
+            }
+        },
+        //Delate a message
+        delateMessage(menuIndex) {
+            this.contacts[this.activeChat].messages.splice(menuIndex, 1)
+        }
     },
 });
