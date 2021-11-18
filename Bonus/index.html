@@ -87,7 +87,10 @@
                         <div class="avatar-img mr-10">
                             <img :src="`img/avatar${element.avatar}.jpg`" :alt=" element.name"/>
                         </div>
-                        <span class="contact-name">{{ element.name }}</span>
+                        <div class="flex-column">
+                            <span class="contact-name">{{ element.name }}</span>
+                            <span class="last-message">{{element.messages[element.messages.length -1].text}}...</span>
+                        </div>
                     </li>
                 </ul>
                 <h3 v-else>Non hai nessun contatto o chat con cui parlare...</h3>

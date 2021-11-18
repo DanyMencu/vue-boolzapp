@@ -232,6 +232,12 @@ input:hover {
     font-size: 14px;
 }
 
+.last-message {
+    font-size: 10px;
+    color: #bababa;
+    padding-top: 3px;
+}
+
 .last-login {
     font-size: 12px;
 }
@@ -249,7 +255,7 @@ input:hover {
     min-height: 30px;
     display: flex;
     justify-content: space-between;
-    border-radius: 10px;
+    border-radius: 5px;
     margin: 3px 0;
     padding: 5px;
 }
