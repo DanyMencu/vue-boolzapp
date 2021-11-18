@@ -80,7 +80,7 @@
                     <li 
                         class="contact d-flex"
                         v-for="(element, index) in contacts"
-                        v-if="element.visible === true"
+                        v-show="element.visible === true"
                         @click="choseChat(index)"
                         :class="{focussed: index === activeChat,}"
                     >
